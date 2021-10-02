@@ -17,6 +17,8 @@ knitr::opts_chunk$set(
 )
 library(tidyverse)
 library(glue)
+#install.packages("tribble", repos = "http://cran.us.r-project.org")
+#library(tribble)
 
 # Set this to true to have links turned into footnotes at the end of the document
 PDF_EXPORT <- FALSE
@@ -34,8 +36,9 @@ position_data <- read_csv('positions.csv') %>%
   mutate(
     # Build some custom sections by collapsing others
     section = case_when(
-      section %in% c('research_positions', 'industry_positions') ~ 'positions', 
-      section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
+      section %in% c('Professional_position', 'Additional_positions') ~ 'positions', 
+      section %in% c('Certification') ~ 'writings',
+      section %in% c('Professional_engagement') ~ 'engagement',
       TRUE ~ section
     )
   ) 
@@ -54,11 +57,9 @@ Contact {#contact}
 
 
 
-- <i class="fa fa-envelope"></i> nick.strayer@gmail.com
-- <i class="fa fa-twitter"></i> NicholasStrayer
-- <i class="fa fa-github"></i> github.com/nstrayer
-- <i class="fa fa-link"></i> [nickstrayer.me](http://nickstrayer.me/)
-- <i class="fa fa-phone"></i> (734) 645-0110
+- <i class="fa fa-envelope"></i> mjmillic@asu.edu
+- <i class="fa fa-twitter"></i> Melissa Millican
+- <i class="fa fa-github"></i> github.com/millmeli42
 
 
 
@@ -69,34 +70,19 @@ Language Skills {#skills}
 ```{r}
 skills <- tribble(
   ~skill,               ~level,
-  "R",                  5,
-  "Javascript (d3.js)", 4.5,
-  "Python",             4,
-  "Bash",               3.5,
-  "SQL",                3,
-  "C++",                3,
-  "AWK",                3
+  "R",                  1,
+  "Microsoft Office", 4.5,
+  "Budgeting",             4,
+  "Project Management Software",               3.5,
+  "Fishing",                5,
+  "Adobe Creative Cloud",                3,
+  "Team Building",                3
 )
 build_skill_bars(skills)
 ```
 
 
 
-Open Source Contributions {#open-source}
---------------------------------------------------------------------------------
-
-All projects available at `github.com/nstrayer/<name>`
-
-
-- `shinysense`: R package to use sensor data in Shiny apps
-- `tuftesque`: Hugo theme (behind LiveFreeOrDichotomize.com)
-- `slid3r`: D3 add-on for fully svg slider inputs
-
-
-More info {#more-info}
---------------------------------------------------------------------------------
-
-See full CV at nickstrayer.me/cv for more complete list of positions and publications.
 
 
 Disclaimer {#disclaimer}
@@ -114,14 +100,12 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Nick Strayer {#title}
+Melissa Millican {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
-intro_text <- "I have made [visualizations viewed by hundreds of thousands of people](https://www.nytimes.com/interactive/2016/08/26/us/college-student-migration.html), [sped up query times for 25 terabytes of data by an average of 4,800 times](https://livefreeordichotomize.com/2019/06/04/using_awk_and_r_to_parse_25tb/), and built [packages for R](https://github.com/nstrayer/shinysense) that let you [do magic](http://nickstrayer.me/dataDayTexas/).
-
-Currently searching for a data science position that allows me to build tools using visualization and machine learning to help people explore and understand their data. 
-"
+intro_text <- "**Transformational leader with a credible history of success leading the planning and implementation of large-scale programs through exemplary leadership of on-site/remotely operating teams to deliver best-in-class customer experience.** 
+Track record of enabling organizational effectiveness through an amalgamation of vision, ingenuity, and strong business acumen with sound program management and relationship building skills. Commendable background in collating user feedback for existing program portfolios, identifying downstream issues, formulating risk mitigation plans, and executing change management initiatives to achieve significant cost savings. Demonstrated solid expertise heading multi-million-dollar budgets to exceed organizational objectives, support revenue growth, and contribute to the ongoing improvement and organizational alignment. Possess decisive leadership qualifications with expertise in establishing/maintaining strong lines of communication through virtual modalities, providing technical/operational guidance to field teams, and handling confidential information with extreme discretion."
 
 
 cat(sanitize_links(intro_text))
@@ -145,7 +129,15 @@ Selected Positions {data-icon=suitcase}
 position_data %>% print_section('positions')
 ```
 
-Selected Writing {data-icon=newspaper}
+Engagement {data-icon=newspaper}
+--------------------------------------------------------------------------------
+
+
+```{r}
+position_data %>% print_section('engagement')
+```
+
+Certifications {data-icon=newspaper}
 --------------------------------------------------------------------------------
 
 
