@@ -1,6 +1,6 @@
 ---
-title: Nick Strayer's Resume"
-author: Nick Strayer
+title: Lab 06 Millican"
+author: Melissa Millican
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
@@ -63,7 +63,7 @@ Contact {#contact}
 
 
 
-Language Skills {#skills}
+Additional Skills {#skills}
 --------------------------------------------------------------------------------
 
 
